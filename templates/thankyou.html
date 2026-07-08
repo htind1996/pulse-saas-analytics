@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pulse | Thank You</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="page-container">
+
+
+        <section class="brand">
+
+            <div class="logo">P</div>
+
+            <span>Pulse</span>
+
+        </section>
+
+
+        <section class="registration-card success-card">
+
+
+            <div class="success-icon">
+
+                ✓
+
+            </div>
+
+
+            <h1>
+
+                Thank you, {{ full_name }}
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                Your registration has been completed successfully.
+
+                Your Pulse workspace is ready.
+
+            </p>
+
+
+            <a
+                href="/"
+                class="home-button"
+            >
+
+                Back to home →
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+</html>

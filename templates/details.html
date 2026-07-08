@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pulse | Workspace Details</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <section class="brand">
+            <div class="logo">P</div>
+            <span>Pulse</span>
+        </section>
+
+
+        <section class="registration-card details-card">
+
+            <p class="step">STEP 2 OF 2</p>
+
+            <h1>Tell us about your work</h1>
+
+            <p class="subtitle">
+                Hi {{ full_name }}. Help us personalize your workspace.
+            </p>
+
+
+            <form
+                method="POST"
+                action="/complete-registration"
+            >
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+
+                        <label for="company_name">
+                            Company name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company_name"
+                            name="company_name"
+                            placeholder="Acme Technologies"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <select
+                            id="country"
+                            name="country"
+                            required
+                        >
+
+                            <option value="">
+                                Select country
+                            </option>
+
+                            <option value="India">
+                                India
+                            </option>
+
+                            <option value="United States">
+                                United States
+                            </option>
+
+                            <option value="United Kingdom">
+                                United Kingdom
+                            </option>
+
+                            <option value="France">
+                                France
+                            </option>
+
+                            <option value="Germany">
+                                Germany
+                            </option>
+
+                            <option value="Australia">
+                                Australia
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="industry">
+                            Industry
+                        </label>
+
+                        <select
+                            id="industry"
+                            name="industry"
+                            required
+                        >
+
+                            <option value="">
+                                Select industry
+                            </option>
+
+                            <option value="Technology">
+                                Technology
+                            </option>
+
+                            <option value="Finance">
+                                Finance
+                            </option>
+
+                            <option value="Healthcare">
+                                Healthcare
+                            </option>
+
+                            <option value="Education">
+                                Education
+                            </option>
+
+                            <option value="Retail">
+                                Retail
+                            </option>
+
+                            <option value="Manufacturing">
+                                Manufacturing
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="company_size">
+                            Company size
+                        </label>
+
+                        <select
+                            id="company_size"
+                            name="company_size"
+                            required
+                        >
+
+                            <option value="">
+                                Select company size
+                            </option>
+
+                            <option value="1-10">
+                                1–10 employees
+                            </option>
+
+                            <option value="11-50">
+                                11–50 employees
+                            </option>
+
+                            <option value="51-200">
+                                51–200 employees
+                            </option>
+
+                            <option value="201-1000">
+                                201–1000 employees
+                            </option>
+
+                            <option value="1000+">
+                                1000+ employees
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="job_role">
+                            Job role
+                        </label>
+
+                        <input
+                            type="text"
+                            id="job_role"
+                            name="job_role"
+                            placeholder="Data Analyst"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="plan_type">
+                            Plan
+                        </label>
+
+                        <select
+                            id="plan_type"
+                            name="plan_type"
+                            required
+                        >
+
+                            <option value="">
+                                Select plan
+                            </option>
+
+                            <option value="Free">
+                                Free
+                            </option>
+
+                            <option value="Professional">
+                                Professional
+                            </option>
+
+                            <option value="Enterprise">
+                                Enterprise
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <label class="checkbox-container">
+
+                    <input
+                        type="checkbox"
+                        name="marketing_consent"
+                    >
+
+                    <span>
+                        I'd like to receive product updates
+                        and analytics insights.
+                    </span>
+
+                </label>
+
+
+                <button type="submit">
+                    Complete registration →
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

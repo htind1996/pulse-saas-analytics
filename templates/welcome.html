@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pulse | Create Account</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <section class="brand">
+            <div class="logo">P</div>
+            <span>Pulse</span>
+        </section>
+
+        <section class="registration-card">
+
+            <p class="step">STEP 1 OF 2</p>
+
+            <h1>Welcome to Pulse</h1>
+
+            <p class="subtitle">
+                Create your workspace and turn customer activity
+                into meaningful insights.
+            </p>
+
+            <form method="POST" action="/register">
+
+                <div class="input-group">
+                    <label for="full_name">Full name</label>
+
+                    <input
+                        type="text"
+                        id="full_name"
+                        name="full_name"
+                        placeholder="Harshit Tiwari"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Work email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@company.com"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Minimum 8 characters"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <button type="submit">
+                    Create account →
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
