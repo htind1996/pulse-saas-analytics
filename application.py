@@ -169,6 +169,86 @@ def complete_registration():
         full_name=full_name
     )
 
+
+@app.route("/admin/analytics")
+def analytics():
+
+    connection = get_database_connection()
+
+    cursor = connection.cursor(dictionary=True)
+
+
+    # KPI METRICS
+
+    cursor.execute("""
+        SELECT
+            COUNT(*) AS total_users,
+            SUM(
+                CASE
+                    WHEN plan_type = 'Free'
+                    THEN 1
+                    ELSE 0
+                END
+            ) AS free_users,
+            SUM(
+                CASE
+                    WHEN plan_type != 'Free'
+                    THEN 1
+                    ELSE 0
+                END
+            ) AS paid_users,
+            SUM(
+                CASE
+                    WHEN marketing_consent = 1
+                    THEN 1
+                    ELSE 0
+                END
+            ) AS marketing_users
+        FROM users
+    """)
+
+    metrics = cursor.fetchone()
+
+
+    # USERS BY PLAN
+
+    cursor.execute("""
+        SELECT
+            plan_type,
+            COUNT(*) AS user_count
+        FROM users
+        GROUP BY plan_type
+        ORDER BY user_count DESC
+    """)
+
+    plan_distribution = cursor.fetchall()
+
+
+    # USERS BY COUNTRY
+
+    cursor.execute("""
+        SELECT
+            country,
+            COUNT(*) AS user_count
+        FROM users
+        GROUP BY country
+        ORDER BY user_count DESC
+    """)
+
+    country_distribution = cursor.fetchall()
+
+
+    cursor.close()
+
+    connection.close()
+
+
+    return render_template(
+        "analytics.html",
+        metrics=metrics,
+        plan_distribution=plan_distribution,
+        country_distribution=country_distribution
+    )
 application = app 
 
 

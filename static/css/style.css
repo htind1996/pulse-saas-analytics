@@ -277,3 +277,246 @@ select option {
 
     font-weight: bold;
 }
+
+/* =========================================
+   PULSE ANALYTICS DASHBOARD
+========================================= */
+
+.analytics-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 50px 40px;
+}
+
+.analytics-header {
+    margin-bottom: 40px;
+}
+
+.analytics-header .step {
+    margin-bottom: 16px;
+}
+
+.analytics-header h1 {
+    margin-bottom: 12px;
+
+    font-size: 42px;
+}
+
+.analytics-header .subtitle {
+    margin-bottom: 0;
+}
+
+
+/* KPI METRIC GRID */
+
+.metrics-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+
+/* KPI CARD */
+
+.metric-card {
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(124, 108, 255, 0.5);
+}
+
+
+/* KPI LABEL */
+
+.metric-label {
+    margin-bottom: 14px;
+
+    color: #9ca3b7;
+
+    font-size: 13px;
+}
+
+
+/* KPI NUMBER */
+
+.metric-value {
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 900px) {
+
+    .metrics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 550px) {
+
+    .analytics-container {
+        padding: 30px 20px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-header h1 {
+        font-size: 32px;
+    }
+
+}
+
+/* =========================================
+   ANALYTICS CHARTS
+========================================= */
+
+.charts-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 24px;
+
+    margin-top: 30px;
+}
+
+
+.chart-card {
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.chart-card h2 {
+    margin-bottom: 30px;
+
+    font-size: 20px;
+}
+
+
+.bar-chart {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.bar-row {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr 30px;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.bar-label {
+    color: #d5d8e3;
+
+    font-size: 13px;
+}
+
+
+.bar-track {
+    height: 10px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+.bar-fill {
+    height: 100%;
+
+    min-width: 4px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #7868ff,
+        #9c8cff
+    );
+}
+
+
+.country-bar {
+    background: linear-gradient(
+        90deg,
+        #2bbbad,
+        #3ed6c4
+    );
+}
+
+
+.bar-value {
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+@media (max-width: 800px) {
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

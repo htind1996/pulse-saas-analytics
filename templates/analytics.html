@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pulse | Analytics Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="analytics-container">
+
+        <section class="brand">
+            <div class="logo">P</div>
+            <span>Pulse Analytics</span>
+        </section>
+
+        <section class="analytics-header">
+
+            <p class="step">PRODUCT ANALYTICS</p>
+
+            <h1>Customer Overview</h1>
+
+            <p class="subtitle">
+                Real-time registration metrics from the Pulse platform.
+            </p>
+
+        </section>
+
+
+        <!-- KPI METRICS -->
+
+        <section class="metrics-grid">
+
+            <div class="metric-card">
+                <p>Total Users</p>
+                <h2>{{ metrics.total_users }}</h2>
+            </div>
+
+            <div class="metric-card">
+                <p>Free Users</p>
+                <h2>{{ metrics.free_users }}</h2>
+            </div>
+
+            <div class="metric-card">
+                <p>Paid Users</p>
+                <h2>{{ metrics.paid_users }}</h2>
+            </div>
+
+            <div class="metric-card">
+                <p>Marketing Consent</p>
+                <h2>{{ metrics.marketing_users }}</h2>
+            </div>
+
+        </section>
+
+
+        <!-- ANALYTICS CHARTS -->
+
+        <section class="charts-grid">
+
+            <div class="chart-card">
+
+                <h2>Users by Plan</h2>
+
+                <div class="bar-chart">
+
+                    {% for plan in plan_distribution %}
+
+                    <div class="bar-row">
+
+                        <div class="bar-label">
+                            {{ plan.plan_type }}
+                        </div>
+
+                        <div class="bar-track">
+
+                            <div
+                                class="bar-fill"
+                                style="width: {{ (plan.user_count / metrics.total_users * 100) }}%;"
+                            ></div>
+
+                        </div>
+
+                        <div class="bar-value">
+                            {{ plan.user_count }}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <h2>Users by Country</h2>
+
+                <div class="bar-chart">
+
+                    {% for country in country_distribution %}
+
+                    <div class="bar-row">
+
+                        <div class="bar-label">
+                            {{ country.country }}
+                        </div>
+
+                        <div class="bar-track">
+
+                            <div
+                                class="bar-fill country-bar"
+                                style="width: {{ (country.user_count / metrics.total_users * 100) }}%;"
+                            ></div>
+
+                        </div>
+
+                        <div class="bar-value">
+                            {{ country.user_count }}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
