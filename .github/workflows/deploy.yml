@@ -28,4 +28,4 @@ jobs:
         with:
           application-name: pulse-saas-analytics
           environment-name: pulse-saas-analytics-env
-          region: us-east-1
+          aws-region: us-east-1
