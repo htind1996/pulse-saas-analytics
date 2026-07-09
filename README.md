@@ -12,25 +12,18 @@ The application is deployed on AWS Elastic Beanstalk.
 
 ## Architecture
 
-User Browser
-    |
-    v
-HTML / CSS Frontend
-    |
-    v
-Python Flask Application
-    |
-    v
-AWS Elastic Beanstalk
-    |
-    v
-Amazon RDS MySQL
-    |
-    v
-SQL Analytics
-    |
-    v
-Product Analytics Dashboard
+```mermaid
+flowchart TD
+    A[User Browser] -->|HTTP Request| B[AWS Elastic Beanstalk]
+    B --> C[Nginx Reverse Proxy]
+    C --> D[Python Flask Application]
+    D --> E[MySQL Connector]
+    E -->|TCP Port 3306| F[Amazon RDS MySQL]
+
+    G[Elastic Beanstalk EC2 Security Group] -->|Allowed Source| H[RDS Security Group]
+    H --> F
+
+
 
 ## Current Features
 
