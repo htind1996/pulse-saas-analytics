@@ -169,6 +169,8 @@ def complete_registration():
         full_name=full_name
     )
 
+application = app 
+
 
 if __name__ == "__main__":
 
